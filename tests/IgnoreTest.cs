@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SQLite;
-using SQLite.Classes.Attributes;
+using SQLite.Attributes;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
@@ -26,14 +26,14 @@ namespace SQLite.Tests
 
 			public string Text { get; set; }
 
-			[SQLite.Classes.Attributes.Ignore]
+			[SQLite.Attributes.Ignore]
 			public Dictionary<int, string> Edibles
 			{ 
 				get { return this._edibles; }
 				set { this._edibles = value; }
 			} protected Dictionary<int, string> _edibles = new Dictionary<int, string>();
 
-			[SQLite.Classes.Attributes.Ignore]
+			[SQLite.Attributes.Ignore]
 			public string IgnoredText { get; set; }
 
 			public override string ToString ()

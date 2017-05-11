@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SQLite.Classes {
+namespace SQLite {
     public abstract class BaseTableQuery {
         protected class Ordering {
             public string ColumnName { get; set; }

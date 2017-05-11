@@ -2,7 +2,7 @@
 using System.Threading;
 using SQLite.Enums;
 
-namespace SQLite.Classes.AsyncSupport {
+namespace SQLite.AsyncSupport {
     public class SQLiteConnectionWithLock : SQLiteConnection {
         readonly object _lockPoint = new object();
 

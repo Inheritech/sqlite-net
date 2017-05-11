@@ -6,11 +6,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using SQLite.Classes.Definitions;
-using SQLite.Classes.Exceptions;
+using SQLite.Definitions;
+using SQLite.Exceptions;
 using Sqlite3Statement = SQLitePCL.sqlite3_stmt;
 
-namespace SQLite.Classes {
+namespace SQLite {
     public partial class SQLiteCommand {
         SQLiteConnection _conn;
         private List<Binding> _bindings;

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using SQLite.Classes.Definitions;
+using SQLite.Definitions;
 using SQLite.Enums;
 
-namespace SQLite.Classes.Event {
+namespace SQLite.Event {
     public class NotifyTableChangedEventArgs : EventArgs {
         public TableMapping Table { get; private set; }
         public NotifyTableChangedAction Action { get; private set; }

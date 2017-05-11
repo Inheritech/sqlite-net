@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
-using SQLite.Classes.Attributes;
-using SQLite.Classes;
-using SQLite.Classes.AsyncSupport;
+using SQLite.Attributes;
+using SQLite;
+using SQLite.AsyncSupport;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;

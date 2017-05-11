@@ -4,9 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite.Classes.Attributes;
+using SQLite.Attributes;
 
-namespace SQLite.Classes {
+namespace SQLite {
     public class EnumCacheInfo {
         public EnumCacheInfo(Type type) {
 #if !USE_NEW_REFLECTION_API

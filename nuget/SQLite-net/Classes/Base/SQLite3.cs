@@ -1,10 +1,10 @@
 ﻿using System;
-using SQLite.Classes.Exceptions;
+using SQLite.Exceptions;
 using Sqlite3 = SQLitePCL.raw;
 using Sqlite3DatabaseHandle = SQLitePCL.sqlite3;
 using Sqlite3Statement = SQLitePCL.sqlite3_stmt;
 
-namespace SQLite.Classes {
+namespace SQLite {
     public static class SQLite3 {
         public enum Result : int {
             OK = 0,

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using SQLite.Classes.Definitions;
+using SQLite.Definitions;
 
-namespace SQLite.Classes {
+namespace SQLite {
     public class TableQuery<T> : BaseTableQuery, IEnumerable<T> {
         public SQLiteConnection Connection { get; private set; }
 

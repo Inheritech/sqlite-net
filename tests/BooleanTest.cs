@@ -6,8 +6,9 @@ using System.Text;
 using SQLite;
 
 using System.Diagnostics;
-using SQLite.Classes.Attributes;
-using SQLite.Classes;
+using SQLite.Attributes;
+using SQLite;
+using SQLite.Attributes;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;

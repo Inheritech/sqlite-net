@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SQLite.Classes.AsyncSupport {
+namespace SQLite.AsyncSupport {
 
     public class CreateTablesResult {
         public Dictionary<Type, int> Results { get; private set; }

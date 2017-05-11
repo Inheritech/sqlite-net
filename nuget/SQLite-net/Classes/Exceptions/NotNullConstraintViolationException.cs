@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using SQLite.Classes.Definitions;
+using SQLite.Definitions;
 
-namespace SQLite.Classes.Exceptions {
+namespace SQLite.Exceptions {
     public class NotNullConstraintViolationException : SQLiteException {
         public IEnumerable<TableMapping.Column> Columns { get; protected set; }
 

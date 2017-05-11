@@ -4,9 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite.Classes;
+using SQLite;
 
-namespace SQLite.Classes.AsyncSupport {
+namespace SQLite.AsyncSupport {
     //
     // TODO: Bind to AsyncConnection.GetConnection instead so that delayed
     // execution can still work after a Pool.Reset.

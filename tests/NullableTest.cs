@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SQLite;
-using SQLite.Classes.Attributes;
-using SQLite.Classes;
+using SQLite.Attributes;
+using SQLite;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;

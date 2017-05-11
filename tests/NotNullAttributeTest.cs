@@ -5,10 +5,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using SQLite;
-using SQLite.Classes.Attributes;
-using SQLite.Classes;
-using SQLite.Classes.Exceptions;
-using SQLite.Classes.Definitions;
+using SQLite.Attributes;
+using SQLite;
+using SQLite.Exceptions;
+using SQLite.Definitions;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;

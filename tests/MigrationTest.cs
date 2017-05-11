@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Text;
 using SQLite;
-using SQLite.Classes.Attributes;
+using SQLite.Attributes;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;

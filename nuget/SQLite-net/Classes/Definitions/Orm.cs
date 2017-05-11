@@ -4,10 +4,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite.Classes.Attributes;
-using SQLite.Classes.Definitions;
+using SQLite.Attributes;
+using SQLite.Definitions;
 
-namespace SQLite.Classes {
+namespace SQLite {
     public static class Orm {
         public const int DefaultMaxStringLength = 140;
         public const string ImplicitPkName = "Id";

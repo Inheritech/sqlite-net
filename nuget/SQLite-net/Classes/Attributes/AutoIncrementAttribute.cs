@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SQLite.Classes.Attributes {
+namespace SQLite.Attributes {
     /// <summary>
     /// Autoincrement
     /// </summary>

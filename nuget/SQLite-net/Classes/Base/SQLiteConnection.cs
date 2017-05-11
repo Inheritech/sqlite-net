@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using SQLite;
-using SQLite.Classes.Attributes;
-using SQLite.Classes.Definitions;
-using SQLite.Classes.Event;
-using SQLite.Classes.Exceptions;
+using SQLite.Attributes;
+using SQLite.Definitions;
+using SQLite.Event;
+using SQLite.Exceptions;
 using SQLite.Enums;
 using Sqlite3DatabaseHandle = SQLitePCL.sqlite3;
 
-namespace SQLite.Classes {
+namespace SQLite {
     public partial class SQLiteConnection : IDisposable {
         private bool _open;
         private TimeSpan _busyTimeout;

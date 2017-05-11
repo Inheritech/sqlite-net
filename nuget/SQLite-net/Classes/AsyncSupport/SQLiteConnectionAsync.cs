@@ -5,10 +5,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite.Classes;
+using SQLite;
 using SQLite.Enums;
 
-namespace SQLite.Classes.AsyncSupport {
+namespace SQLite.AsyncSupport {
     public partial class SQLiteConnectionAsync {
         SQLiteConnectionString _connectionString;
         SQLiteOpenFlags _openFlags;

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite.Classes;
+using SQLite;
 using SQLite.Enums;
 
-namespace SQLite.Classes.AsyncSupport {
+namespace SQLite.AsyncSupport {
     public class SQLiteConnectionPool {
         class Entry {
             public SQLiteConnectionString ConnectionString { get; private set; }

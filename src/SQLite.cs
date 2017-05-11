@@ -55,8 +55,8 @@ using Sqlite3Statement = Sqlite.Statement;
 using Sqlite3DatabaseHandle = SQLitePCL.sqlite3;
 using Sqlite3Statement = SQLitePCL.sqlite3_stmt;
 using Sqlite3 = SQLitePCL.raw;
-using SQLite.Classes.Attributes;
-using SQLite.Classes.Definitions;
+using SQLite.Attributes;
+using SQLite.Definitions;
 using SQLite.Enums;
 #else
 using Sqlite3DatabaseHandle = System.IntPtr;

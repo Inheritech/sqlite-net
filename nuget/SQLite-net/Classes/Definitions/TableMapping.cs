@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using SQLite.Classes.Attributes;
+using SQLite.Attributes;
 using SQLite.Enums;
 using ConcurrentStringDictionary = System.Collections.Generic.Dictionary<string, object>;
 using SQLite.Extensions;
 
-namespace SQLite.Classes.Definitions {
+namespace SQLite.Definitions {
     public class TableMapping {
         public Type MappedType { get; private set; }
 

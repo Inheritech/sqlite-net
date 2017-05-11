@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using SQLite.Classes.Exceptions;
+using SQLite.Exceptions;
 using Sqlite3Statement = SQLitePCL.sqlite3_stmt;
 
-namespace SQLite.Classes {
+namespace SQLite {
     public class PreparedSqlLiteInsertCommand : IDisposable {
         public bool Initialized { get; set; }
 

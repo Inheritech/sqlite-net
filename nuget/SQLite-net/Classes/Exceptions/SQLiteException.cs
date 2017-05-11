@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 
-namespace SQLite.Classes.Exceptions {
+namespace SQLite.Exceptions {
     public class SQLiteException : Exception {
         public SQLite3.Result Result { get; private set; }
 

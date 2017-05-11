@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SQLite;
-using SQLite.Classes.Attributes;
-using SQLite.Classes;
-using SQLite.Classes.Exceptions;
+using SQLite.Attributes;
+using SQLite;
+using SQLite.Exceptions;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
