@@ -82,4 +82,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\nuget\SQLite-net\SQLite-net.csproj">
+      <Project>{7F946494-8EE0-432B-8A87-98961143D5C1}</Project>
+      <Name>SQLite-net</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

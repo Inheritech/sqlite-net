@@ -7,6 +7,8 @@ using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestCl
 using Test = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAttribute;
 #else
 using NUnit.Framework;
+using SQLite.Classes.AsyncSupport;
+using SQLite.Classes.Attributes;
 #endif
 
 namespace SQLite.Tests
@@ -35,11 +37,11 @@ namespace SQLite.Tests
 		[Test]
 		public void AsyncAsTicks ()
 		{
-			var db = new SQLiteAsyncConnection (TestPath.GetTempFileName ());
+			var db = new SQLiteConnectionAsync (TestPath.GetTempFileName ());
 			TestAsyncDateTimeOffset (db);
 		}
 
-		void TestAsyncDateTimeOffset (SQLiteAsyncConnection db)
+		void TestAsyncDateTimeOffset (SQLiteConnectionAsync db)
 		{
 			db.CreateTableAsync<TestObj> ().Wait ();
 

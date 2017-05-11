@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
+using SQLite.Classes.Attributes;
+using SQLite.Classes;
+using SQLite.Classes.AsyncSupport;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
@@ -124,7 +127,7 @@ namespace SQLite.Tests
 			}
 		}
 
-		SQLiteAsyncConnection GetConnection ()
+		SQLiteConnectionAsync GetConnection ()
 		{
 			string path = null;
 			return GetConnection (ref path);
@@ -136,7 +139,7 @@ namespace SQLite.Tests
 		[SetUp]
 		public void SetUp()
 		{
-			SQLite.SQLiteConnectionPool.Shared.Reset ();
+			SQLiteConnectionPool.Shared.Reset ();
 #if NETFX_CORE
 			_connectionString = DatabaseName;
 			_path = Path.Combine (Windows.Storage.ApplicationData.Current.LocalFolder.Path, DatabaseName);
@@ -153,10 +156,10 @@ namespace SQLite.Tests
 #endif
 		}
 		
-		SQLiteAsyncConnection GetConnection (ref string path)
+		SQLiteConnectionAsync GetConnection (ref string path)
 		{
 			path = _path;
-			return new SQLiteAsyncConnection (_connectionString);
+			return new SQLiteConnectionAsync (_connectionString);
 		}
 
 		[Test]

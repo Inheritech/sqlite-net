@@ -10,6 +10,8 @@ using TestFixture = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestCl
 using Test = Microsoft.VisualStudio.TestPlatform.UnitTestFramework.TestMethodAttribute;
 #else
 using NUnit.Framework;
+using SQLite.Classes;
+using SQLite.Classes.Attributes;
 #endif
 
 namespace SQLite.Tests

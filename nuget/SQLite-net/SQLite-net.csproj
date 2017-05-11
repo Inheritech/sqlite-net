@@ -8,7 +8,7 @@
     <ProjectGuid>{7F946494-8EE0-432B-8A87-98961143D5C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SQLite_net</RootNamespace>
+    <RootNamespace>SQLite</RootNamespace>
     <AssemblyName>SQLite-net</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -27,10 +27,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\SQLite-net.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType></DebugType>
+    <DebugType>
+    </DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;USE_SQLITEPCL_RAW USE_NEW_REFLECTION_API NO_CONCURRENT</DefineConstants>
@@ -48,19 +50,53 @@
     <Compile Include="..\..\src\SQLiteAsync.cs">
       <Link>SQLiteAsync.cs</Link>
     </Compile>
+    <Compile Include="Classes\AsyncSupport\CreateTablesResult.cs" />
+    <Compile Include="Classes\AsyncSupport\SQLiteConnectionAsync.cs" />
+    <Compile Include="Classes\AsyncSupport\SQLiteConnectionPool.cs" />
+    <Compile Include="Classes\AsyncSupport\SQLiteConnectionWithLock.cs" />
+    <Compile Include="Classes\AsyncSupport\TableQueryAsync.cs" />
+    <Compile Include="Classes\Attributes\AutoIncrementAttribute.cs" />
+    <Compile Include="Classes\Attributes\CollationAttribute.cs" />
+    <Compile Include="Classes\Attributes\ColumnAttribute.cs" />
+    <Compile Include="Classes\Attributes\IgnoreAttribute.cs" />
+    <Compile Include="Classes\Attributes\IndexedAttribute.cs" />
+    <Compile Include="Classes\Attributes\MaxLengthAttribute.cs" />
+    <Compile Include="Classes\Attributes\NotNullAttribute.cs" />
+    <Compile Include="Classes\Attributes\PrimaryKeyAttribute.cs" />
+    <Compile Include="Classes\Attributes\StoreAsTextAttribute.cs" />
+    <Compile Include="Classes\Attributes\TableAttribute.cs" />
+    <Compile Include="Classes\Attributes\UniqueAttribute.cs" />
+    <Compile Include="Classes\Definitions\BaseTableQuery.cs" />
+    <Compile Include="Classes\Definitions\TableMapping.cs" />
+    <Compile Include="Classes\Definitions\EnumCache.cs" />
+    <Compile Include="Classes\Definitions\EnumCacheInfo.cs" />
+    <Compile Include="Classes\Event\NotifyTableChangedEventArgs.cs" />
+    <Compile Include="Classes\Extensions\ListEx.cs" />
+    <Compile Include="Classes\Exceptions\NotNullConstraintViolationException.cs" />
+    <Compile Include="Classes\Exceptions\SQLiteException.cs" />
+    <Compile Include="Classes\Definitions\Orm.cs" />
+    <Compile Include="Classes\Definitions\PreparedSQLiteInsertCommand.cs" />
+    <Compile Include="Classes\Base\SQLite3.cs" />
+    <Compile Include="Classes\Definitions\SQLiteCommand.cs" />
+    <Compile Include="Classes\Base\SQLiteConnection.cs" />
+    <Compile Include="Classes\Definitions\SQLiteConnectionString.cs" />
+    <Compile Include="Classes\Definitions\TableQuery.cs" />
+    <Compile Include="Enums\CreateFlags.cs" />
+    <Compile Include="Enums\NotifyTableChangedAction.cs" />
+    <Compile Include="Enums\OpenFlags.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="SQLitePCLRaw.core">
-      <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.batteries_green, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_green">
-      <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.1.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_v2">
-      <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.1.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.5\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

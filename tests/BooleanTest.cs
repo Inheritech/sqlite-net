@@ -6,6 +6,8 @@ using System.Text;
 using SQLite;
 
 using System.Diagnostics;
+using SQLite.Classes.Attributes;
+using SQLite.Classes;
 
 #if NETFX_CORE
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;

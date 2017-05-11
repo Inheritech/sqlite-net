@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using SQLite.Classes;
+using SQLite.Classes.Attributes;
 
 #if NETFX_CORE
 class DescriptionAttribute : Attribute
