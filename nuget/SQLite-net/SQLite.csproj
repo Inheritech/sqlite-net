@@ -44,12 +44,6 @@
     <Compile Include="..\..\src\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\..\src\SQLite.cs">
-      <Link>SQLite.cs</Link>
-    </Compile>
-    <Compile Include="..\..\src\SQLiteAsync.cs">
-      <Link>SQLiteAsync.cs</Link>
-    </Compile>
     <Compile Include="Classes\AsyncSupport\CreateTablesResult.cs" />
     <Compile Include="Classes\AsyncSupport\SQLiteConnectionAsync.cs" />
     <Compile Include="Classes\AsyncSupport\SQLiteConnectionPool.cs" />
