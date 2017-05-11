@@ -4,15 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using SQLite;
 using SQLite.Attributes;
 using SQLite.Definitions;
+using SQLite.Enums;
 using SQLite.Event;
 using SQLite.Exceptions;
-using SQLite.Enums;
 using Sqlite3DatabaseHandle = SQLitePCL.sqlite3;
 
 namespace SQLite {
@@ -279,9 +276,23 @@ namespace SQLite {
             var @virtual = fts ? "virtual " : string.Empty;
             var @using = fts3 ? "using fts3 " : fts4 ? "using fts4 " : string.Empty;
 
+            if (map.PK != null & map.CK.Length > 0) {
+                throw new Exception(string.Format("The table {0} cannot declare a primary key and composite keys", map.TableName));
+            }
+
             // Build query.
             var query = "create " + @virtual + "table if not exists \"" + map.TableName + "\" " + @using + "(\n";
-            var decls = map.Columns.Select(p => Orm.SqlDecl(p, StoreDateTimeAsTicks));
+            var decls = map.Columns.Select(p => Orm.SqlDecl(p, StoreDateTimeAsTicks)).ToList();
+            if(map.CK.Length > 0) {
+                var ckNames = map.CK.Select(p => p.Name);
+                string joinedCKs = string.Join(", ", ckNames.ToArray());
+                string modifier = string.Format("PRIMARY KEY ({0})", joinedCKs);
+                decls.Add(modifier);
+            }
+            if (map.FK != null) {
+                string foreignKeyModifier = string.Format("FOREIGN KEY ({0}) REFERENCES {1}({2})", map.FK.KeyColumn.Name, map.FK.ReferencedTable.Name, map.FK.ReferencedColumn.Name);
+                decls.Add(foreignKeyModifier);
+            }
             var decl = string.Join(",\n", decls.ToArray());
             query += decl;
             query += ")";

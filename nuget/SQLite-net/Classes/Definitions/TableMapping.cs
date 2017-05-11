@@ -8,6 +8,7 @@ using ConcurrentStringDictionary = System.Collections.Generic.Dictionary<string,
 using SQLite.Extensions;
 
 namespace SQLite.Definitions {
+
     public class TableMapping {
         public Type MappedType { get; private set; }
 
@@ -16,6 +17,10 @@ namespace SQLite.Definitions {
         public Column[] Columns { get; private set; }
 
         public Column PK { get; private set; }
+
+        public ForeignKey FK { get; private set; }
+
+        public Column[] CK { get; private set; }
 
         public string GetByPrimaryKeySql { get; private set; }
 
@@ -54,6 +59,8 @@ namespace SQLite.Definitions {
                 }
             }
             Columns = cols.ToArray();
+
+            List<Column> ck = new List<Column>();
             foreach (var c in Columns) {
                 if (c.IsAutoInc && c.IsPK) {
                     _autoPk = c;
@@ -61,12 +68,25 @@ namespace SQLite.Definitions {
                 if (c.IsPK) {
                     PK = c;
                 }
+                if (c.IsCK) {
+                    ck.Add(c);
+                }
+                if (c.IsFK) {
+                    FK = c.FK;
+                }
             }
+
+            CK = ck.ToArray();
 
             HasAutoIncPK = _autoPk != null;
 
-            if (PK != null) {
-                GetByPrimaryKeySql = string.Format("select * from \"{0}\" where \"{1}\" = ?", TableName, PK.Name);
+            if (PK != null || ck.Count != 0) {
+                if (PK != null && ck.Count == 0) {
+                    GetByPrimaryKeySql = string.Format("select * from \"{0}\" where \"{1}\" = ?", TableName, PK.Name);
+                }
+                if (PK == null && ck.Count > 0) {
+                    GetByPrimaryKeySql = string.Format("select * from \"{0}\" where \"{1}\" = ?", TableName, CK[0].Name);
+                }
             } else {
                 // People should not be calling Get/Find without a PK
                 GetByPrimaryKeySql = string.Format("select * from \"{0}\" limit 1", TableName);
@@ -184,6 +204,10 @@ namespace SQLite.Definitions {
 
             public bool IsPK { get; private set; }
 
+            public bool IsCK { get; private set; }
+
+            public bool IsFK { get; private set; }
+
             public IEnumerable<IndexedAttribute> Indices { get; set; }
 
             public bool IsNullable { get; private set; }
@@ -191,6 +215,8 @@ namespace SQLite.Definitions {
             public int? MaxStringLength { get; private set; }
 
             public bool StoreAsText { get; private set; }
+
+            public ForeignKey FK;
 
             public Column(PropertyInfo prop, CreateFlags createFlags = CreateFlags.None) {
                 var colAttr = (ColumnAttribute)prop.GetCustomAttributes(typeof(ColumnAttribute), true).FirstOrDefault();
@@ -204,6 +230,21 @@ namespace SQLite.Definitions {
                 IsPK = Orm.IsPK(prop) ||
                     (((createFlags & CreateFlags.ImplicitPK) == CreateFlags.ImplicitPK) &&
                          string.Compare(prop.Name, Orm.ImplicitPkName, StringComparison.OrdinalIgnoreCase) == 0);
+
+                IsCK = Orm.IsCK(prop);
+
+                IsFK = Orm.IsFK(prop);
+                if (IsFK) {
+                    ForeignKeyAttribute attr = prop.GetCustomAttribute<ForeignKeyAttribute>(true);
+                    TableMapping refTable = new TableMapping(attr.ReferenceTable);
+                    string refColumnName = attr.ReferenceColumn ?? this.Name;
+                    var refColumns = refTable.Columns.Select(c => c).Where(c => c.Name == refColumnName).ToArray();
+                    if (refColumns.Length > 0) {
+                        FK = new ForeignKey(this, attr.ReferenceTable, refColumns[ 0 ]);
+                    } else {
+                        throw new Exception(string.Format("The referenced column \"{0}\" in {1} doesn't exist", refColumnName, this.Name));
+                    }
+                }
 
                 var isAuto = Orm.IsAutoInc(prop) || (IsPK && ((createFlags & CreateFlags.AutoIncPK) == CreateFlags.AutoIncPK));
                 IsAutoGuid = isAuto && ColumnType == typeof(Guid);

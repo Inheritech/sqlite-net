@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooleanTest.cs" />
+    <Compile Include="ByteArrayTest.cs" />
+    <Compile Include="CompositeKeysTest.cs" />
+    <Compile Include="ForeignKeysTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

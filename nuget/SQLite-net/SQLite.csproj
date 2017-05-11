@@ -52,6 +52,8 @@
     <Compile Include="Classes\Attributes\AutoIncrementAttribute.cs" />
     <Compile Include="Classes\Attributes\CollationAttribute.cs" />
     <Compile Include="Classes\Attributes\ColumnAttribute.cs" />
+    <Compile Include="Classes\Attributes\CompositeKeyAttribute.cs" />
+    <Compile Include="Classes\Attributes\ForeignKeyAttribute.cs" />
     <Compile Include="Classes\Attributes\IgnoreAttribute.cs" />
     <Compile Include="Classes\Attributes\IndexedAttribute.cs" />
     <Compile Include="Classes\Attributes\MaxLengthAttribute.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Classes\Attributes\TableAttribute.cs" />
     <Compile Include="Classes\Attributes\UniqueAttribute.cs" />
     <Compile Include="Classes\Definitions\BaseTableQuery.cs" />
+    <Compile Include="Classes\Definitions\ForeignKey.cs" />
     <Compile Include="Classes\Definitions\TableMapping.cs" />
     <Compile Include="Classes\Definitions\EnumCache.cs" />
     <Compile Include="Classes\Definitions\EnumCacheInfo.cs" />

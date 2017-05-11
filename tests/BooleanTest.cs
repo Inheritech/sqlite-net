@@ -1,13 +1,5 @@
 using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SQLite;
-
 using System.Diagnostics;
-using SQLite.Attributes;
-using SQLite;
 using SQLite.Attributes;
 
 #if NETFX_CORE
@@ -20,8 +12,7 @@ using NUnit.Framework;
 #endif
 
 
-namespace SQLite.Tests
-{    
+namespace SQLite.Tests {
     [TestFixture]
     public class BooleanTest
     {

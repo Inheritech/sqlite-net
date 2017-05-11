@@ -78,6 +78,24 @@ namespace SQLite {
 #endif
         }
 
+        public static bool IsCK(MemberInfo p) {
+            var attrs = p.GetCustomAttributes(typeof(CompositeKeyAttribute), true);
+#if !USE_NEW_REFLECTION_API
+            return attrs.Length > 0;
+#else
+            return attrs.Count() > 0;
+#endif
+        }
+
+        public static bool IsFK(MemberInfo p) {
+            var attrs = p.GetCustomAttributes(typeof(ForeignKeyAttribute), true);
+#if !USE_NEW_REFLECTION_API
+            return attrs.Length > 0;
+#else
+            return attrs.Count() > 0;
+#endif
+        }
+
         public static string Collation(MemberInfo p) {
             var attrs = p.GetCustomAttributes(typeof(CollationAttribute), true);
 #if !USE_NEW_REFLECTION_API
